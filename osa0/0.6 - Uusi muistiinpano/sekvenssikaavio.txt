@@ -1,0 +1,16 @@
+title Uusi muistiinpano SPA versiossa
+note over selain:
+Koodi luo objektin tekstikentässä
+olevasta viestistä ja lisää sen
+muistiinpanolistaan
+end note
+note over selain:
+Koodi lataa ja renderoi kaikki
+listan muistiinpanot uudelleen
+end note
+note over selain
+Koodi lähettää uuden muistiinpanon
+palvelimelle
+end note
+selain->palvelin: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa\n{content: "viesti", date: "2022-01-28"}
+palvelin-->selain: {"message":"note created"}

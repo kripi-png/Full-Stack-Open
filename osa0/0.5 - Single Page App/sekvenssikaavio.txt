@@ -1,0 +1,14 @@
+title Single Page App version avaaminen
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa
+palvelin-->selain: html-tiedosto
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+palvelin-->selain: main.css
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+palvelin->selain: spa.js
+note over selain:
+Selain alkaa suorittamaan
+js-tiedoston koodia
+end note
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+palvelin-->selain: [{"content":"viesti","date":"2022-01-28"},...]
+note over selain: Koodi järjestää viestit sivulle

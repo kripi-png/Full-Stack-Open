@@ -1,0 +1,31 @@
+title Uuden muistiinpanon tallennus
+note over selain:
+Kun käyttäjä painaa tallennusnappia,
+sivun koodi tallettaa tekstikentässä
+olevan muistiinpanon uuteen olioon
+end note
+note over selain:
+uusi muistiinpano lähetetään palvelimelle
+[{content: "viesti", date: "2022-01-27"}, ...]
+end note
+selain->palvelin: HTTP POST  https://studies.cs.helsinki.fi/exampleapp/new_note
+
+palvelin-->selain: Status Code 302
+note over selain:
+selain saa uudelleenohjauspyynnön
+ja lataa sivun uudelleen
+end note
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+palvelin-->selain: HTML-koodi
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+palvelin-->selain: main.css
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+palvelin-->selain: main.js
+note over selain: Sivu alkaa suorittamaan main.js-tiedoston koodia
+
+selain->palvelin: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+palvelin-->selain: [{content: "viesti", date: "2022-01-27"}, ...]
+note over selain: Sivu järjestelee data.json-tiedoston viestit sivulle
